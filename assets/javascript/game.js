@@ -37,7 +37,7 @@ function addLetter(usersKeypress) {
     //alert player if the above code is true
 
     if (repeatGuess) {
-        alert(usersKeypress + "Fool! GUESS AGAIN");
+        alert(usersKeypress + " Fool! GUESS AGAIN");
 
         //if not a repeat guess, check if its in word
 
