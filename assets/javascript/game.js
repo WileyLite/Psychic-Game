@@ -3,10 +3,11 @@
 
 let letter = "abcdefghijklmnopqrstuvwxyz";
 var computerGuess = letter[Math.floor(Math.random() * letter.length)];
-var letterGuess = document.querySelector(".guesses");
+var letterGuess = document.querySelector(".letterGuess");
 
 var guessPro = 9;
 var guesses = document.querySelector("guesses");
+var guessSubmit = document.querySelector("guessSubmit");
 let guessesCount = 0;
 
 // console.log(letter.length);
@@ -19,8 +20,9 @@ let guessesCount = 0;
 // }
 //I searched through mdn to find the answers to some issues I was having
 function checkGuess() {
+    guessSubmit.addEventListener("click", checkGuess);
   let letterGuess = letter(guesses.value);
-  if (guessesCount === 0) {
+  if (guessPro === 9) {
       guessPro.textContent = 'Guessed so far: ';
   }
   guessPro.textContent += guesses + ' ';
@@ -28,7 +30,7 @@ function checkGuess() {
   if (letterGuess === computerGuess) {
       guesses.textContent = 'You Rock My Guy!';
       setGameOver();
-  } else if (guessesCount === 9) {
+  } else if (guessPro === 0) {
       guesses.textContent = "!!!You Aren't a Psychic my Guy!!!"
       setGameOver();
   } else {
@@ -43,7 +45,7 @@ function checkGuess() {
   guesses.focus();
 }
 
-guessSubmit.addEventListener("click", checkGuess);
+
 
 function setGameOver() {
     guesses.disabled = true;
